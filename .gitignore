@@ -1,0 +1,5 @@
+# exclude .gradle directories
+**/.gradle/
+
+# exclude .log directories
+**/.log/

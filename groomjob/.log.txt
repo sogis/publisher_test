@@ -1,0 +1,110 @@
+=======================================================
+Starts the GRETL image to execute the given GRETL job
+Docker Image: sogis/gretl:2.2.298
+Docker network: 
+job directory: /home/oliver/code/publisher_test
+Gradle options: --project-dir groomjob --info
+gretl_cmd: gretl --project-dir groomjob --info -PgretlShare=/tmp/gretl-share
+=======================================================
+Initialized native services in: /home/gradle/.gradle/native
+To honour the JVM settings for this build a new JVM will be forked. Please consider using the daemon: https://docs.gradle.org/5.1.1/userguide/gradle_daemon.html.
+Starting process 'Gradle build daemon'. Working directory: /home/gradle/.gradle/daemon/5.1.1 Command: /usr/lib/jvm/jdk-8u333-bellsoft-x86_64/bin/java -XX:MaxMetaspaceSize=256m -XX:+HeapDumpOnOutOfMemoryError -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -cp /opt/gradle/lib/gradle-launcher-5.1.1.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 5.1.1
+Successfully started process 'Gradle build daemon'
+An attempt to start the daemon took 0.733 secs.
+The client will now receive all logging from the daemon (pid: 51). The daemon log file: /home/gradle/.gradle/daemon/5.1.1/daemon-51.out.log
+Daemon will be stopped at the end of the build stopping after processing
+Using 4 worker leases.
+Starting Build
+Compiling initialization script '/home/gradle/init.gradle' using SubsetScriptTransformer.
+Compiling initialization script '/home/gradle/init.gradle' using BuildScriptTransformer.
+Settings evaluated using settings file '/home/gradle/project/groomjob/settings.gradle'.
+Projects loaded. Root project using build file '/home/gradle/project/groomjob/build.gradle'.
+Included projects: [root project 'groomjob']
+
+> Configure project :
+Evaluating root project 'groomjob' using build file '/home/gradle/project/groomjob/build.gradle'.
+Compiling build file '/home/gradle/project/groomjob/build.gradle' using SubsetScriptTransformer.
+Compiling build file '/home/gradle/project/groomjob/build.gradle' using BuildScriptTransformer.
+All projects evaluated.
+No tasks specified. Using project default tasks 'publiedit'
+Selected primary task 'publiedit' from project :
+Tasks to be executed: [task ':publiedit']
+:publiedit (Thread[Execution worker for ':',5,main]) started.
+
+> Task :publiedit
+Task ':publiedit' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+Custom actions are attached to task ':publiedit'.
+Groom-conf: /home/gradle/project/publisher_grooming.json
+target Connection( Url: /home/gradle/project/groomjob/datarepo, User: null Pass: )
+Reading grooming conf: /home/gradle/project/publisher_grooming.json
+neuer Stand (2023-02-28) existiert schon im "aktuell" (2023-02-28) und wird ueberschrieben
+ilivalidator-1.12.1-8d9b922cd26b01147d77a23d300d952d29359a30
+ili2c-5.2.8-61f7212579ac3c4ae219d511afb5a0615855bc73
+iox-ili-1.21.13-0ca3feb59eff9c381b29139d8f808b4de2464d49
+User <?>
+Start date 2023-02-28 10:47
+maxMemory 466432 KB
+dataFile </home/gradle/project/groomjob/ch.so.awjf.forstreviere.relational.xtf>
+modeldir <%ITF_DIR;http://models.interlis.ch/;%JAR_DIR/ilimodels>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository </home/gradle/project/groomjob/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <http://models.interlis.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <http://models.geo.admin.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://models.kgk-cgc.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://models.interlis.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://models.geo.llv.li/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://405.sia.ch/models/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://repositorio.proadmintierra.info/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <http://models.geo.ai.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://models.geo.kgk-cgc.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://models.geo.ar.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <http://models.geo.kgk-cgc.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://models.geo.be.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <http://models.geo.bl.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://models.geo.bs.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://models.geo.gl.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://models.geo.gr.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://models.geo.lu.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://models.geo.sg.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://models.geo.sh.ch/>
+lookup model <SO_Forstreviere_20170512> 2.3 in repository <https://geo.so.ch/models/>
+lookup model <GeometryCHLV95_V1> 2.3 in repository </home/gradle/project/groomjob/>
+lookup model <GeometryCHLV95_V1> 2.3 in repository <http://models.interlis.ch/>
+lookup model <GeometryCHLV95_V1> 2.3 in repository <http://models.geo.admin.ch/>
+lookup model <CHAdminCodes_V1> 2.3 in repository </home/gradle/project/groomjob/>
+lookup model <CHAdminCodes_V1> 2.3 in repository <http://models.interlis.ch/>
+lookup model <CHAdminCodes_V1> 2.3 in repository <http://models.geo.admin.ch/>
+lookup model <InternationalCodes_V1> 2.3 in repository </home/gradle/project/groomjob/>
+lookup model <InternationalCodes_V1> 2.3 in repository <http://models.interlis.ch/>
+lookup model <InternationalCodes_V1> 2.3 in repository <http://models.geo.admin.ch/>
+lookup model <CoordSys> 2.3 in repository </home/gradle/project/groomjob/>
+lookup model <CoordSys> 2.3 in repository <http://models.interlis.ch/>
+lookup model <Units> 2.3 in repository </home/gradle/project/groomjob/>
+lookup model <Units> 2.3 in repository <http://models.interlis.ch/>
+ilifile </home/gradle/.ilicache/models.interlis.ch/refhb23/CoordSys-20151124.ili>
+ilifile </home/gradle/.ilicache/models.interlis.ch/refhb23/Units-20120220.ili>
+ilifile </home/gradle/.ilicache/models.geo.admin.ch/CH/CHBase_Part2_LOCALISATION_V1.ili>
+ilifile </home/gradle/.ilicache/models.geo.admin.ch/CH/CHBase_Part1_GEOMETRY_V1.ili>
+ilifile </home/gradle/.ilicache/models.geo.admin.ch/CH/CHBase_Part4_ADMINISTRATIVEUNITS_V1.ili>
+ilifile </home/gradle/.ilicache/geo.so.ch/models/AWJF/SO_Forstreviere_20170512.ili>
+validate data...
+assume unknown external objects
+first validation pass...
+second validation pass...
+validate multiplicity of role SO_Forstreviere_20170512.Forstreviere.Forstreviergeometrie_Forstrevier.Forstreviergeometrie...
+validate multiplicity of role SO_Forstreviere_20170512.Forstreviere.Forstreviergeometrie_Forstkreis.Forstreviergeometrie...
+validate target of role SO_Forstreviere_20170512.Forstreviere.Forstreviergeometrie_Forstkreis.Forstkreis...
+validate target of role SO_Forstreviere_20170512.Forstreviere.Forstreviergeometrie_Forstrevier.Forstrevier...
+validate multiplicity of role SO_Forstreviere_20170512.Forstreviere.Forstreviergeometrie_Forstkreis.Forstkreis...
+validate multiplicity of role SO_Forstreviere_20170512.Forstreviere.Forstreviergeometrie_Forstrevier.Forstrevier...
+object count 195 (structured elements 348)
+/home/gradle/project/groomjob/ch.so.awjf.forstreviere.relational.xtf: SO_Forstreviere_20170512.Forstreviere BID=SO_Forstreviere_20170512.Forstreviere
+      4 objects in CLASS SO_Forstreviere_20170512.Forstreviere.Forstkreis
+     17 objects in CLASS SO_Forstreviere_20170512.Forstreviere.Forstrevier
+    174 objects in CLASS SO_Forstreviere_20170512.Forstreviere.Forstreviergeometrie
+...validation done
+End date 2023-02-28 10:47 validation took 00h:00m:07s.0612ms
+:publiedit (Thread[Execution worker for ':',5,main]) completed. Took 8.324 secs.
+
+BUILD SUCCESSFUL in 15s
+1 actionable task: 1 executed

@@ -1,1 +1,1 @@
-./start-gretl.sh --docker-image sogis/gretl:2.2.298 --job-directory $PWD --project-dir groomjob --info | tee $PWD/groomjob/.log.txt
+./start-gretl.sh --docker-image sogis/gretl:2.2.298 --job-directory $PWD --project-dir groomjob --debug | tee $PWD/groomjob/.log/log.txt

@@ -1,0 +1,105 @@
+import java.nio.file.Paths
+import java.nio.file.Path
+import java.nio.file.Files
+import java.io.FileWriter
+
+
+/*
+import ch.so.agi.gretl.tasks.*
+import ch.so.agi.gretl.api.TransferSet
+
+apply plugin: 'ch.so.agi.gretl'
+
+defaultTasks 'publiedit'
+
+
+def groomPath = new File(file(projectDir).getParentFile(), "publisher_grooming.json")
+
+task publiedit(type: Publisher){
+
+    doFirst{
+        println "Groom-conf: " + groomPath
+    }
+
+    dataIdent = "ch.so.awjf.forstreviere.relational"
+    userFormats = false
+
+    modelsToPublish = "SO_Forstreviere_20170512"
+
+    sourcePath = file("$projectDir/ch.so.awjf.forstreviere.relational.xtf")
+    target = [file("$projectDir/datarepo")]
+
+    grooming = groomPath
+}
+*/
+
+
+task testMocking(){
+    doFirst{
+        mockThemePubDir("test", [2,3]);
+    }
+}
+
+
+void mockThemePubDir(String nameOfParentDir, Collection archiveAges){
+    def themePubDir = Paths.get(buildDir.toString(), nameOfParentDir, "ch.so.awjf.forstreviere.relational").toFile();
+
+    // aktuell
+    mockDateDir(themePubDir, 1, true)
+
+    // hist
+    for(age in archiveAges)
+        mockDateDir(themePubDir, age, false)
+}
+
+
+void mockDateDir(File themePubDir, int age, boolean isLatest){
+    
+    def templateDirName = "datadir_template"
+    def zipDataFileName = "ch.so.awjf.forstreviere.relational.xtf.zip"
+    
+    def dataDir = null;
+    def dateString = LocalDate.now().minusDays(age).toString();
+
+    logger.info(themePubDir.toString());
+    logger.info(dateString);
+
+    // Create empty dir
+    if(isLatest)
+        dataDir = Paths.get(themePubDir.toString(), "aktuell").toFile();
+    else
+        dataDir = Paths.get(themePubDir.toString(), "hist", dateString).toFile();
+
+    dataDir.mkdirs();
+
+    // Copy data to dir
+    Files.copy(
+        Paths.get(projectDir.toString(), templateDirName, zipDataFileName),
+        Paths.get(dataDir.toString(), zipDataFileName)
+    )
+
+    // Copy template files into meta subdir
+    def metaDirTarget = new File(dataDir, "meta");
+    metaDirTarget.mkdir();
+
+    def isFileClosure = { it.toFile().isFile() }
+    def copyClosure = { 
+        try{
+            Files.copy(it, Paths.get(metaDirTarget.toString(), it.getFileName().toString())) 
+        }
+        catch(Exception e){
+            throw new RuntimeException(e)
+        }
+    }
+
+    Files.walk(Paths.get(projectDir.toString(), "datadir_template", "meta"))
+        .filter(isFileClosure)
+        .forEach(copyClosure)
+
+    // Create and write publishdate.json to /meta subdir
+    def writer = new FileWriter(new File(metaDirTarget, "publishdate.json"))
+    def content = '{"publishdate":"' + dateString + '"}'
+    writer.write(content, 0, content.length())
+    writer.close()
+}
+

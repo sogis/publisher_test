@@ -2,6 +2,7 @@ import java.nio.file.Paths
 import java.nio.file.Path
 import java.nio.file.Files
 import java.io.FileWriter
+import java.time.format.DateTimeFormatter
 
 import ch.so.agi.gretl.tasks.*
 import ch.so.agi.gretl.api.TransferSet
@@ -14,13 +15,13 @@ defaultTasks 'normal'
 def groomPath = new File(file(projectDir).getParentFile(), "publisher_grooming.json")
 
 task juengsten_behalten_woche(type: Publisher){
-    
+    //...
 }
 
 task normal(type: Publisher){
 
     doFirst{
-        mockThemePubDirs("normal", [1,6,7,30,31,32,302,303,304]);
+        mockThemePubDirs("normal", [1,6,7,30,31,32,302,303,304]); // Generierte "hist-Stände" (Array) muss vieleicht noch angepasst werden, um den Test verifizieren zu können
     }
 
     dataIdent = "ch.so.awjf.forstreviere.relational"
@@ -60,6 +61,7 @@ void mockDateDir(File themePubDir, int age, boolean isLatest){
     
     def dataDir = null;
     def dateString = LocalDate.now().minusDays(age).toString();
+    def weekOfYear = LocalDate.now().minusDays(age).format(DateTimeFormatter.ofPattern("yyyy w"));
 
     // Create empty dir
     if(isLatest)
@@ -70,7 +72,7 @@ void mockDateDir(File themePubDir, int age, boolean isLatest){
     dataDir.mkdirs();
 
     logger.info("dataDir: " + dataDir.toString());
-    logger.info("dateString: " + dateString);
+    logger.info("date: " + dateString + ". week of year (yyyy w): " + weekOfYear);
 
     // Copy data to dir
     Files.copy(

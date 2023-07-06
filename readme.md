@@ -8,10 +8,10 @@
 
 ## Testfälle
 
-* Duplikate in Jahr / Monat / Woche
-    * Ältere Stände im vorletzten Jahr wird gelöscht
-    * Älteres Stände im vorletzten Monat wird gelöscht
-    * Älteres Stände in der vorletzten Woche wird gelöscht
+* Ausdünnung innerhalb Jahr / Monat / Woche
+    * Nur Jüngster innnerhalb des vorletzten Jahres bleibt erhalten
+    * Nur Jüngster innerhalb des vorletzten Monats bleibt erhalten
+    * Nur Jüngster in der vorletzten Woche bleibt erhalten
 * Einzelstände in Jahr / Monat / Woche
     * Drei Testfälle um sicherzustellen, dass der vorhandene einzene Stand bestehen bleibt.
 * Übergang Tag / Woche

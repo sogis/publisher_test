@@ -13,6 +13,10 @@ defaultTasks 'normal'
 
 def groomPath = new File(file(projectDir).getParentFile(), "publisher_grooming.json")
 
+task juengsten_behalten_woche(type: Publisher){
+    
+}
+
 task normal(type: Publisher){
 
     doFirst{

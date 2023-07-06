@@ -3,3 +3,6 @@
 
 # exclude .log directories
 **/.log/
+
+# exclude gradle build directory
+build/

@@ -12,6 +12,7 @@
     * Nur Jüngster innnerhalb des vorletzten Jahres bleibt erhalten
     * Nur Jüngster innerhalb des vorletzten Monats bleibt erhalten
     * Nur Jüngster in der vorletzten Woche bleibt erhalten
+    * Nur Jüngster in den letzten Wochen über Monatsgrenze => **nicht OK**, über Monatsgrenze nimmt es pro Monat den jüngsten Tag pro Woche. (Beispiel 31.07. / 01.08.2023)
 * Einzelstände in Jahr / Monat / Woche
     * Drei Testfälle um sicherzustellen, dass der vorhandene einzene Stand bestehen bleibt.
 * Übergang Tag / Woche

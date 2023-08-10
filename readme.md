@@ -17,6 +17,8 @@
     * Drei Testfälle um sicherzustellen, dass der vorhandene einzene Stand bestehen bleibt.
 * Übergang Tag / Woche
     * 10 Tage lang Daily / danach Weekly
+    * 10 Tage lang Daily => **OK**
+    * letzten 14 Tage 1x pro Woche => **OK**
 * Übergang Woche / Monat
     * 6 Wochen weekly, danach monthly
 * Test der produktiven Groom-Konfiguration

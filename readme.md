@@ -9,7 +9,7 @@
 ## Testfälle
 
 * Ausdünnung innerhalb Jahr / Monat / Woche
-    * Nur Jüngster innnerhalb des vorletzten Jahres bleibt erhalten =>  **nicht OK**, über Jahresgrenze nimmt es pro Jahr den jüngsten Tag pro Jahr. Kann ev, gelöst werden indem man die fefinition anpasst.
+    * Nur Jüngster innnerhalb des vorletzten Jahres bleibt erhalten =>  **nicht OK**, über Jahresgrenze nimmt es pro Jahr den jüngsten Tag pro Jahr. Kann ev. gelöst werden indem man die Definition anpasst.
 ```
 Prüft alle > 365 und > 730 Tage => Problem Jahreswechsel:
 {

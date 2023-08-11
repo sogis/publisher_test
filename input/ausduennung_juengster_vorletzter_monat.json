@@ -1,0 +1,8 @@
+{
+  "grooming": {
+    "monthly": {
+       "from": 30,
+       "to": 61
+    }
+  }
+}

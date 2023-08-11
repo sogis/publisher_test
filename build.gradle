@@ -9,13 +9,127 @@ import ch.so.agi.gretl.api.TransferSet
 
 apply plugin: 'ch.so.agi.gretl'
 
-defaultTasks 'normal'
+defaultTasks 'ausduennung_juengster_vorletzte_woche','ausduennung_juengster_vorletzter_monat','ausduennung_juengster_vorletztes_jahr','uebergang_woche_monat','uebergang_tag_woche','juengsten_behalten_vorletzte_woche','juengsten_behalten_woche','normal'
 
 
 def groomPath = new File(file(projectDir).getParentFile(), "publisher_grooming.json")
 
+task ausduennung_juengster_vorletzte_woche(type: Publisher){
+// Nur Jüngster innerhalb des vorletzten Monats bleibt erhalten
+    doFirst{
+        mockThemePubDirs("ausduennung_juengster_vorletzte_woche", [7,8,9,10,11,12,13,14,15]); 
+    }
+
+    dataIdent = "ch.so.awjf.forstreviere.relational"
+    userFormats = false
+
+    modelsToPublish = "SO_Forstreviere_20170512"
+
+    sourcePath = file("$projectDir/input/ch.so.awjf.forstreviere.relational.xtf")
+    target = [file("$buildDir/ausduennung_juengster_vorletzte_woche")]
+
+    grooming = file("$projectDir/input/ausduennung_juengster_vorletzte_woche.json")
+}
+
+task ausduennung_juengster_vorletzter_monat(type: Publisher){
+// Nur Jüngster innerhalb des vorletzten Monats bleibt erhalten
+    doFirst{
+        mockThemePubDirs("ausduennung_juengster_vorletzter_monat", [1,2,29,30,31,32,59,60,61,62,63,89,90,91]); 
+    }
+
+    dataIdent = "ch.so.awjf.forstreviere.relational"
+    userFormats = false
+
+    modelsToPublish = "SO_Forstreviere_20170512"
+
+    sourcePath = file("$projectDir/input/ch.so.awjf.forstreviere.relational.xtf")
+    target = [file("$buildDir/ausduennung_juengster_vorletzter_monat")]
+
+    grooming = file("$projectDir/input/ausduennung_juengster_vorletzter_monat.json")
+}
+
+task ausduennung_juengster_vorletztes_jahr(type: Publisher){
+// Nur Jüngster innnerhalb des vorletzten Jahres bleibt erhalten
+    doFirst{
+        mockThemePubDirs("ausduennung_juengster_vorletztes_jahr", [1,2,364,365,366,729,730,731,1094,1095,1096,]); 
+    }
+
+    dataIdent = "ch.so.awjf.forstreviere.relational"
+    userFormats = false
+
+    modelsToPublish = "SO_Forstreviere_20170512"
+
+    sourcePath = file("$projectDir/input/ch.so.awjf.forstreviere.relational.xtf")
+    target = [file("$buildDir/ausduennung_juengster_vorletztes_jahr")]
+
+    grooming = file("$projectDir/input/ausduennung_juengster_vorletztes_jahr.json")
+}
+
+task uebergang_woche_monat(type: Publisher){
+// 6 Wochen weekly, danach monthly
+    doFirst{
+        mockThemePubDirs("uebergang_woche_monat", [1,2,3,4,10,11,12,17,18,19,24,25,26,31,32,33,38,39,40,44,45,46,52,53,54,59,60,61,66,67,68,73,41,75,104,105,106,134,135,136,164,165,166,302,303,304]); 
+    }
+
+    dataIdent = "ch.so.awjf.forstreviere.relational"
+    userFormats = false
+
+    modelsToPublish = "SO_Forstreviere_20170512"
+
+    sourcePath = file("$projectDir/input/ch.so.awjf.forstreviere.relational.xtf")
+    target = [file("$buildDir/uebergang_woche_monat")]
+
+    grooming = file("$projectDir/input/uebergang_woche_monat.json")
+}
+
+task uebergang_tag_woche(type: Publisher){
+// 10 Tage lang Daily / danach Weekly
+    doFirst{
+        mockThemePubDirs("uebergang_tag_woche", [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,302,303,304]); 
+    }
+
+    dataIdent = "ch.so.awjf.forstreviere.relational"
+    userFormats = false
+
+    modelsToPublish = "SO_Forstreviere_20170512"
+
+    sourcePath = file("$projectDir/input/ch.so.awjf.forstreviere.relational.xtf")
+    target = [file("$buildDir/uebergang_tag_woche")]
+
+    grooming = file("$projectDir/input/uebergang_tag_woche.json")
+}
+
+task juengsten_behalten_vorletzte_woche(type: Publisher){
+// von heute bis und mit 8. Tag bleibt bestehen
+    doFirst{
+        mockThemePubDirs("juengsten_behalten_vorletzte_woche", [1,2,3,4,5,6,7,8,9,10,13,14,15,30,31,32,302,303,304]); 
+    }
+
+    dataIdent = "ch.so.awjf.forstreviere.relational"
+    userFormats = false
+
+    modelsToPublish = "SO_Forstreviere_20170512"
+
+    sourcePath = file("$projectDir/input/ch.so.awjf.forstreviere.relational.xtf")
+    target = [file("$buildDir/juengsten_behalten_vorletzte_woche")]
+
+    grooming = file("$projectDir/input/juengsten_behalten_vorletzte_woche.json")
+}
+
 task juengsten_behalten_woche(type: Publisher){
-    //...
+    doFirst{
+        mockThemePubDirs("juengsten_behalten_woche", [1,2,3,4,5,6,7,8,9,15,16,17,22,23,24,29,30,31,32,302,303,304]); 
+    }
+
+    dataIdent = "ch.so.awjf.forstreviere.relational"
+    userFormats = false
+
+    modelsToPublish = "SO_Forstreviere_20170512"
+
+    sourcePath = file("$projectDir/input/ch.so.awjf.forstreviere.relational.xtf")
+    target = [file("$buildDir/juengsten_behalten_woche")]
+
+    grooming = file("$projectDir/input/juengsten_behalten_woche.json")
 }
 
 task normal(type: Publisher){

@@ -9,7 +9,7 @@
 ## Testfälle
 
 * Ausdünnung innerhalb Jahr / Monat / Woche
-    * Nur Jüngster innnerhalb des vorletzten Jahres bleibt erhalten
+    * Nur Jüngster innnerhalb des vorletzten Jahres bleibt erhalten => **OK**
     * Nur Jüngster innerhalb des vorletzten Monats bleibt erhalten
     * Nur Jüngster in der vorletzten Woche bleibt erhalten
     * Nur Jüngster in den letzten Wochen über Monatsgrenze => **nicht OK**, über Monatsgrenze nimmt es pro Monat den jüngsten Tag pro Woche. (Beispiel 31.07. / 01.08.2023)

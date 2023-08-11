@@ -10,39 +10,39 @@
 
 * Ausdünnung innerhalb Jahr / Monat / Woche
     * Nur Jüngster innnerhalb des vorletzten Jahres bleibt erhalten =>  **nicht OK**, über Jahresgrenze nimmt es pro Jahr den jüngsten Tag pro Jahr. Kann ev. gelöst werden indem man die Definition anpasst.
-```
-Prüft alle > 365 und > 730 Tage => Problem Jahreswechsel:
-{
-   "grooming": {
-      "yearly": {
-         "from": 366,
-         "to": 731
+      ```
+      Prüft alle > 365 und > 730 Tage => Problem Jahreswechsel:
+     {
+        "grooming": {
+           "yearly": {
+              "from": 366,
+              "to": 731
+          }
+        }
      }
-   }
-}
-```
-```
-Das File am Tag 365 bleibt erhalten:
-{
-   "grooming": {
-      "yearly": {
-         "from": 365,
-         "to": 366
+     ```
+     ```
+     Das File am Tag 365 bleibt erhalten:
+     {
+        "grooming": {
+           "yearly": {
+              "from": 365,
+              "to": 366
+          }
+        }
      }
-   }
-}
-```
-```
-Das File am Tag 730 bleibt erhalten:
-{
-   "grooming": {
-      "yearly": {
-         "from": 730,
-         "to": 731
+     ```
+     ```
+     Das File am Tag 730 bleibt erhalten:
+     {
+        "grooming": {
+           "yearly": {
+              "from": 730,
+              "to": 731
+          }
+        }
      }
-   }
-}
-```
+     ```
     * Nur Jüngster innerhalb des vorletzten Monats bleibt erhalten
     * Nur Jüngster in der vorletzten Woche bleibt erhalten
     * Nur Jüngster in den letzten Wochen über Monatsgrenze => **nicht OK**, über Monatsgrenze nimmt es pro Monat den jüngsten Tag pro Woche. (Beispiel 31.07. / 01.08.2023)

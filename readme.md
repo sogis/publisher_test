@@ -21,4 +21,4 @@
     * letzten 14 Tage 1x pro Woche => **OK**
 * Übergang Woche / Monat
     * 6 Wochen weekly, danach monthly => **OK**
-* Test der produktiven Groom-Konfiguration
+* Test der produktiven Groom-Konfiguration => **OK**

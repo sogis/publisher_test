@@ -10,7 +10,7 @@
 
 * Ausdünnung innerhalb Jahr / Monat / Woche
     * Nur Jüngster innnerhalb des vorletzten Jahres bleibt erhalten => Davon ausgehend dass das Jahr 365 Tage hat. => **nicht OK**, über Jahresgrenze (31.12. / 01.01). Sonst **OK**.
-    * Nur Jüngster innerhalb des vorletzten Monats bleibt erhalten => Davon ausgehen dass der Monat 30 Tage hat. => **nicht OK**, über Monatsgrenze. Rest **OK**.
+    * Nur Jüngster innerhalb des vorletzten Monats bleibt erhalten => Davon ausgehen dass der Monat 30 Tage hat. => **OK**.
       ```doFirst{
         mockThemePubDirs("ausduennung_juengster_vorletzter_monat", [30,31,32,33,59,60,61,62,63]); 
       }

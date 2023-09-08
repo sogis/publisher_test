@@ -1,8 +1,8 @@
 {
    "grooming": {
       "yearly": {
-         "from": 365,
-         "to": 721
+         "from": 721,
+         "to": null
      }
    }
 }

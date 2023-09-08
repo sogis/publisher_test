@@ -9,7 +9,7 @@
 ## Testfälle
 
 * Ausdünnung innerhalb Jahr / Monat / Woche
-    * Nur Jüngster innnerhalb des vorletzten Jahres bleibt erhalten => Davon ausgehend dass das Jahr 365 Tage hat. => **nicht OK**, über Jahresgrenze (31.12. / 01.01). Sonst **OK**.
+    * Nur Ältester innnerhalb des vorletzten Jahres bleibt erhalten => Davon ausgehend dass das Jahr 365 Tage hat. => **OK**.
     * Nur Jüngster innerhalb des vorletzten Monats bleibt erhalten => Davon ausgehen dass der Monat 30 Tage hat. => **OK**.
     * Nur Ältester innerhalb des vorletzten Monats bleibt erhalten => Davon ausgehen dass der Monat 30 Tage hat. => **OK**.
     * Nur Jüngster in der vorletzten Woche bleibt erhalten => über Monatsgrenze nimmt es pro Monat und vorletzte Woche das jüngste Datum. Sonst **OK**.

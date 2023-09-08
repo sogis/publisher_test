@@ -9,10 +9,61 @@ import ch.so.agi.gretl.api.TransferSet
 
 apply plugin: 'ch.so.agi.gretl'
 
-defaultTasks 'ausduennung_juengster_vorletzte_woche','ausduennung_juengster_vorletzter_monat','ausduennung_juengster_vorletztes_jahr','uebergang_woche_monat','uebergang_tag_woche','juengsten_behalten_vorletzte_woche','juengsten_behalten_woche','normal'
-
+defaultTasks 'einzelstand_woche'
+//defaultTasks 'einzelstand_woche','einzelstand_jahr','produktive_konfiguration','ausduennung_juengster_vorletzte_woche','ausduennung_juengster_vorletzter_monat','ausduennung_juengster_vorletztes_jahr','uebergang_woche_monat','uebergang_tag_woche','juengsten_behalten_vorletzte_woche','juengsten_behalten_woche','normal'
 
 def groomPath = new File(file(projectDir).getParentFile(), "publisher_grooming.json")
+
+task einzelstand_woche(type: Publisher){
+// Nur Jüngster innerhalb des vorletzten Monats bleibt erhalten
+    doFirst{
+        mockThemePubDirs("einzelstand_woche", [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]); 
+    }
+
+    dataIdent = "ch.so.awjf.forstreviere.relational"
+    userFormats = false
+
+    modelsToPublish = "SO_Forstreviere_20170512"
+
+    sourcePath = file("$projectDir/input/ch.so.awjf.forstreviere.relational.xtf")
+    target = [file("$buildDir/einzelstand_woche")]
+
+    grooming = file("$projectDir/input/einzelstand_woche.json")
+}
+
+task einzelstand_jahr(type: Publisher){
+// Nur Jüngster innerhalb des vorletzten Monats bleibt erhalten
+    doFirst{
+        mockThemePubDirs("einzelstand_jahr", [364,365,366,729,730,731,1094,1096]); 
+    }
+
+    dataIdent = "ch.so.awjf.forstreviere.relational"
+    userFormats = false
+
+    modelsToPublish = "SO_Forstreviere_20170512"
+
+    sourcePath = file("$projectDir/input/ch.so.awjf.forstreviere.relational.xtf")
+    target = [file("$buildDir/einzelstand_jahr")]
+
+    grooming = file("$projectDir/input/einzelstand_jahr.json")
+}
+
+task produktive_konfiguration(type: Publisher){
+// Nur Jüngster innerhalb des vorletzten Monats bleibt erhalten
+    doFirst{
+        mockThemePubDirs("produktive_konfiguration", [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,40,50,60,70,100,200,302,303,304,305,365,400,500,600,700,701]); 
+    }
+
+    dataIdent = "ch.so.awjf.forstreviere.relational"
+    userFormats = false
+
+    modelsToPublish = "SO_Forstreviere_20170512"
+
+    sourcePath = file("$projectDir/input/ch.so.awjf.forstreviere.relational.xtf")
+    target = [file("$buildDir/produktive_konfiguration")]
+
+    grooming = file("$projectDir/input/produktive_konfiguration.json")
+}
 
 task ausduennung_juengster_vorletzte_woche(type: Publisher){
 // Nur Jüngster innerhalb des vorletzten Monats bleibt erhalten

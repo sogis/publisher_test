@@ -11,27 +11,10 @@
 * Ausdünnung innerhalb Jahr / Monat / Woche
     * Nur Jüngster innnerhalb des vorletzten Jahres bleibt erhalten => Davon ausgehend dass das Jahr 365 Tage hat. => **nicht OK**, über Jahresgrenze (31.12. / 01.01). Sonst **OK**.
     * Nur Jüngster innerhalb des vorletzten Monats bleibt erhalten => Davon ausgehen dass der Monat 30 Tage hat. => **OK**.
-      ```doFirst{
-        mockThemePubDirs("ausduennung_juengster_vorletzter_monat", [30,31,32,33,59,60,61,62,63]); 
-      }
-      ```
-      ```
-      {
-      "grooming": {
-          "monthly": {
-              "from": 31,
-              "to": 60
-          }
-        }
-      }
-      ```
-      ```
-      Resultat:
-      /2023-07-11
-      /2023-08-06
-      ```
-    * Nur Jüngster in der vorletzten Woche bleibt erhalten => **nicht OK**, über Monatsgrenze nimmt es pro Monat und vorletzte Woche das jüngste Datum. Sonst **OK**.
-    * Nur Jüngster in den letzten Wochen über Monatsgrenze => **nicht OK**, über Monatsgrenze nimmt es pro Monat den jüngsten Tag pro Woche. (Beispiel 31.07. / 01.08.2023). Sonst **OK**.
+    * Nur Ältester innerhalb des vorletzten Monats bleibt erhalten => Davon ausgehen dass der Monat 30 Tage hat. => **OK**.
+    * Nur Jüngster in der vorletzten Woche bleibt erhalten => über Monatsgrenze nimmt es pro Monat und vorletzte Woche das jüngste Datum. Sonst **OK**.
+    * Nur Ältester in der vorletzten Woche bleibt erhalten => **OK**.
+    * Nur Jüngster in den letzten Wochen über Monatsgrenze => über Monatsgrenze nimmt es pro Monat den jüngsten Tag pro Woche. (Beispiel 31.07. / 01.08.2023). Sonst **OK**.
 * Einzelstände in Jahr / Monat / Woche
     * Drei Testfälle um sicherzustellen, dass der vorhandene einzene Stand bestehen bleibt.
 * Übergang Tag / Woche

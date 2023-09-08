@@ -2,7 +2,7 @@
   "grooming": {
     "monthly": {
        "from": 31,
-       "to": 60
+       "to": null
     }
   }
 }
